@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로또 번호 추첨기</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALOHA 4-CUT | 하와이 네컷</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <main class="lotto-machine">
-            <header class="lotto-header">
-                <h1>Lotto Number Generator</h1>
-                <p>오늘의 행운 번호를 뽑아보세요!</p>
-            </header>
-            <div class="numbers-display" id="numbers-display">
-                <div class="placeholder">버튼을 눌러 번호를 생성하세요</div>
+    <div class="app-container">
+        <header>
+            <h1>🌺 ALOHA 4-CUT 🏝️</h1>
+            <p>하와이의 파도와 함께 인생 네컷을 남겨보세요!</p>
+        </header>
+
+        <main>
+            <div class="booth-container">
+                <div class="video-wrapper">
+                    <video id="webcam" autoplay playsinline></video>
+                    <div id="countdown" class="hidden">3</div>
+                    <div id="flash" class="hidden"></div>
+                </div>
+
+                <div class="controls">
+                    <button id="start-btn">카메라 켜기</button>
+                    <button id="capture-btn" disabled>촬영 시작!</button>
+                    <button id="download-btn" class="hidden">사진 저장하기</button>
+                </div>
             </div>
-            <button class="generate-btn" id="generate-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M20.49 9A9 9 0 0 0 7.54 5.44"></path><path d="M3.51 15A9 9 0 0 0 16.46 18.56"></path></svg>
-                <span>번호 생성</span>
-            </button>
+
+            <div id="result-container" class="hidden">
+                <h2>완성된 당신의 네컷! 📸</h2>
+                <div class="photo-strip-wrapper">
+                    <canvas id="result-canvas"></canvas>
+                </div>
+            </div>
         </main>
+
+        <footer>
+            <p>&copy; 2024 Aloha Photobooth</p>
+        </footer>
     </div>
+
+    <!-- Hidden canvas for processing individual frames -->
+    <canvas id="hidden-canvas" style="display:none;"></canvas>
+
     <script src="main.js"></script>
 </body>
 </html>

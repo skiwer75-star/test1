@@ -1,38 +1,36 @@
-# Project Blueprint: Lotto Number Generator
+# Project: Aloha 4-Cut Photobooth
 
 ## Overview
+A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can access their webcam, take 4 consecutive photos with a countdown, and download a vertically assembled 4-cut photo strip.
 
-This is a simple web application that generates and displays a set of lottery numbers. It's designed to be clean, modern, and easy to use, showcasing modern web development practices without relying on external frameworks.
+## Features
+- **Webcam Integration:** Real-time video preview with mirror effect.
+- **Automated Capture:** 3-second countdown for each of the 4 photos.
+- **Flash Effect:** Visual feedback during photo capture.
+- **Canvas Processing:** Dynamically assembles captured frames into a themed vertical strip.
+- **Download:** Save the final result as a PNG image.
+- **Hawaii Theme:** Tropical color palette (ocean blue, sand, palm green) and decorative elements.
 
-## Core Features & Design
+## Design
+- **Typography:** Expressive headers using 'Pretendard' and fallbacks.
+- **Color Palette:**
+  - Ocean Blue (`#0077be`)
+  - Accent Orange (`#ff8c00`)
+  - Sand (`#f4e4bc`)
+  - Palm Green (`#3a5f0b`)
+- **Layout:** Responsive design with centered content and glassmorphism-style containers.
 
-### Functionality
-- **Number Generation:** Generates 6 unique random numbers from 1 to 45.
-- **Display:** The generated numbers are displayed in a visually appealing way.
-- **Interactivity:** A button allows the user to generate a new set of numbers at any time.
+## Plan Implementation
+1. **HTML Structure:** Defined the video viewport, countdown overlay, and result canvas.
+2. **CSS Styling:** Implemented the Hawaii theme, button animations, and photo strip layout.
+3. **JavaScript Logic:**
+   - Managed `getUserMedia` for webcam access.
+   - Implemented an async loop for the 4-capture sequence.
+   - Used `<canvas>` to composite the final image with headers and footers.
+4. **Git Deployment:** Pushed the finalized code to the GitHub repository.
 
-### Design & Style
-- **Layout:** A centered, card-based layout that is responsive and works well on all screen sizes.
-- **Color Palette:** A vibrant and modern color scheme. The background has a subtle texture. Numbers are color-coded for visual distinction.
-- **Typography:** Clear and readable fonts with a strong hierarchy.
-- **Effects:** Soft drop shadows on the main card and interactive "glow" effects on the button to create depth and provide user feedback.
-- **Iconography:** A refresh icon is used on the button to visually communicate its purpose.
-
-## Current Task: Initial Implementation
-
-**Goal:** Transform the initial "Hello, World!" project into a fully functional Lotto Number Generator.
-
-**Steps:**
-
-1.  **Update HTML (`index.html`):**
-    *   Set the document title to "로또 번호 추첨기".
-    *   Create the main structure: a container for the app, a title, a display area for the numbers, and a "Generate" button with an SVG icon.
-2.  **Update CSS (`style.css`):**
-    *   Implement the modern design described above using CSS variables, flexbox, and animations.
-    *   Style the main container as a "lifted" card.
-    *   Create distinct, color-coded styles for each number ball.
-    *   Style the "Generate" button with interactive hover and active effects.
-3.  **Update JavaScript (`main.js`):**
-    *   Add an event listener to the "Generate" button.
-    *   Implement the logic to generate 6 unique random numbers between 1 and 45.
-    *   Write a function to dynamically create and insert the number "balls" into the HTML display area with a staggered animation effect.
+## Files
+- `index.html`: Main application structure.
+- `style.css`: Visual styling and theme.
+- `main.js`: Core logic for camera and image processing.
+- `blueprint.md`: Project documentation and plan tracking.
