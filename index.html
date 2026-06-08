@@ -1,14 +1,27 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로또 번호 추첨기</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="container">
+        <main class="lotto-machine">
+            <header class="lotto-header">
+                <h1>Lotto Number Generator</h1>
+                <p>오늘의 행운 번호를 뽑아보세요!</p>
+            </header>
+            <div class="numbers-display" id="numbers-display">
+                <div class="placeholder">버튼을 눌러 번호를 생성하세요</div>
+            </div>
+            <button class="generate-btn" id="generate-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M20.49 9A9 9 0 0 0 7.54 5.44"></path><path d="M3.51 15A9 9 0 0 0 16.46 18.56"></path></svg>
+                <span>번호 생성</span>
+            </button>
+        </main>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
