@@ -27,8 +27,8 @@ async function initCamera() {
 
     const constraints = {
         video: {
-            width: currentCameraMode === 'desktop' ? 1280 : 720,
-            height: currentCameraMode === 'desktop' ? 720 : 1280,
+            width: { ideal: currentCameraMode === 'desktop' ? 1280 : 720 },
+            height: { ideal: currentCameraMode === 'desktop' ? 720 : 1280 },
             facingMode: currentCameraMode === 'desktop' ? 'user' : { ideal: 'user' }
         },
         audio: false
@@ -56,6 +56,7 @@ function resetCapture() {
     captureCounterEl.textContent = `0 / ${TOTAL_PHOTOS}`;
     captureCounterEl.classList.add('hidden');
     captureBtn.textContent = `촬영하기 (0/${TOTAL_PHOTOS})`;
+    captureBtn.disabled = false;
     resultContainer.classList.add('hidden');
     downloadBtn.classList.add('hidden');
 }
@@ -64,6 +65,7 @@ startBtn.addEventListener('click', initCamera);
 
 // Mode Selection
 modeDesktopBtn.addEventListener('click', () => {
+    if (currentCameraMode === 'desktop') return;
     currentCameraMode = 'desktop';
     modeDesktopBtn.classList.add('active');
     modeMobileBtn.classList.remove('active');
@@ -71,6 +73,7 @@ modeDesktopBtn.addEventListener('click', () => {
 });
 
 modeMobileBtn.addEventListener('click', () => {
+    if (currentCameraMode === 'mobile') return;
     currentCameraMode = 'mobile';
     modeMobileBtn.classList.add('active');
     modeDesktopBtn.classList.remove('active');
@@ -79,6 +82,11 @@ modeMobileBtn.addEventListener('click', () => {
 
 // 2. Capture Logic
 captureBtn.addEventListener('click', () => {
+    if (captureBtn.textContent === '다시 촬영하기') {
+        resetCapture();
+        return;
+    }
+
     if (capturedImages.length >= TOTAL_PHOTOS) return;
 
     capturePhoto();
@@ -104,14 +112,36 @@ function capturePhoto() {
     }, 300);
 
     const context = hiddenCanvas.getContext('2d');
-    hiddenCanvas.width = video.videoWidth;
-    hiddenCanvas.height = video.videoHeight;
     
-    // Draw mirrored video frame
+    // Use fixed dimensions for internal processing to avoid aspect ratio issues
+    const targetWidth = currentCameraMode === 'desktop' ? 800 : 600;
+    const targetHeight = currentCameraMode === 'desktop' ? 600 : 800;
+    
+    hiddenCanvas.width = targetWidth;
+    hiddenCanvas.height = targetHeight;
+    
+    // Calculate cropping to maintain aspect ratio
+    const videoRatio = video.videoWidth / video.videoHeight;
+    const targetRatio = targetWidth / targetHeight;
+    
+    let sx, sy, sw, sh;
+    if (videoRatio > targetRatio) {
+        sh = video.videoHeight;
+        sw = sh * targetRatio;
+        sx = (video.videoWidth - sw) / 2;
+        sy = 0;
+    } else {
+        sw = video.videoWidth;
+        sh = sw / targetRatio;
+        sx = 0;
+        sy = (video.videoHeight - sh) / 2;
+    }
+
+    // Draw mirrored and cropped video frame
     context.save();
     context.translate(hiddenCanvas.width, 0);
     context.scale(-1, 1);
-    context.drawImage(video, 0, 0, hiddenCanvas.width, hiddenCanvas.height);
+    context.drawImage(video, sx, sy, sw, sh, 0, 0, targetWidth, targetHeight);
     context.restore();
     
     capturedImages.push(hiddenCanvas.toDataURL('image/png'));
@@ -196,7 +226,6 @@ function finalizeCanvas(ctx, canvas) {
     downloadBtn.classList.remove('hidden');
     captureBtn.disabled = false;
     captureBtn.textContent = '다시 촬영하기';
-    captureBtn.onclick = () => location.reload(); // Simple reset
 }
 
 // 4. Download Function
