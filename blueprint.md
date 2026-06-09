@@ -10,6 +10,7 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
 - **Canvas Processing:** Dynamically assembles captured frames into a themed vertical strip.
 - **Download:** Save the final result as a PNG image.
 - **Hawaii Theme:** Tropical color palette (ocean blue, sand, palm green) and decorative elements.
+- **Inquiry & Recommendation Form:** Integrated Formspree contact form for user feedback and recommendations.
 
 ## Design
 - **Typography:** Expressive headers using 'Pretendard' and fallbacks.
@@ -19,15 +20,18 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
   - Sand (`#f4e4bc`)
   - Palm Green (`#3a5f0b`)
 - **Layout:** Responsive design with centered content and glassmorphism-style containers.
+- **Form UI:** Clean, themed form with subtle shadows and responsive inputs.
 
 ## Plan Implementation
-1. **HTML Structure:** Defined the video viewport, countdown overlay, and result canvas.
-2. **CSS Styling:** Implemented the Hawaii theme, button animations, and photo strip layout.
+1. **HTML Structure:** Defined the video viewport, countdown overlay, result canvas, and inquiry form.
+2. **CSS Styling:** Implemented the Hawaii theme, button animations, photo strip layout, and form styling.
 3. **JavaScript Logic:**
    - Managed `getUserMedia` for webcam access.
    - Implemented an async loop for the 4-capture sequence.
    - Used `<canvas>` to composite the final image with headers and footers.
-4. **Git Deployment:** Pushed the finalized code to the GitHub repository.
+   - Handled form submission visual feedback.
+4. **Integration:** Connected the inquiry form to Formspree endpoint (`https://formspree.io/f/xkoabpye`).
+5. **Git Deployment:** Pushed the finalized code to the GitHub repository.
 
 ## Files
 - `index.html`: Main application structure.

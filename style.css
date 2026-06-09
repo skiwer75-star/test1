@@ -156,10 +156,118 @@ button:hover:not(:disabled) {
     margin-top: 20px;
 }
 
+/* Existing styles... */
+
 #result-canvas {
     max-width: 300px;
     height: auto;
     border: 1px solid #ddd;
+}
+
+/* Inquiry Form Styles */
+.inquiry-section {
+    margin-top: 60px;
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    text-align: left;
+}
+
+.form-container h3 {
+    color: var(--primary-blue);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-container p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--palm-green);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+/* @formspree/ajax specific classes */
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+    border-color: #dc3545;
+}
+
+.field-error {
+    display: block;
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.form-status-msg {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-status-msg.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.form-status-msg.error {
+    background-color: #f8d7da;
+    color: #721c24;
 }
 
 .hidden {
