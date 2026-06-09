@@ -10,7 +10,7 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
 - **Flash Effect:** Visual feedback during photo capture.
 - **Canvas Processing:** Dynamically assembles captured frames into a themed vertical strip.
 - **Download:** Save the final result as a PNG image.
-- **Hawaii Bikini Theme:** Tropical color palette with a vibrant Hawaii background featuring premium visual elements.
+- **Hawaii Bikini Theme:** Tropical color palette with a vibrant high-quality background image featuring a woman in a bikini on a Hawaii beach for a premium and energetic look.
 - **Inquiry & Recommendation Form:** Integrated Formspree contact form using the AJAX SDK.
 
 ## Design
@@ -21,7 +21,7 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
   - Sand (`#f4e4bc`)
   - Palm Green (`#3a5f0b`)
 - **Layout:** Responsive design with centered content and glassmorphism-style containers.
-- **Visuals:** The final output features a "Hawaii Bikini" themed background for a more energetic and stylish look.
+- **Visuals:** The final output features a realistic "Hawaii Bikini" background image, fulfilling the request for a vibrant and stylish aesthetic.
 
 ## Plan Implementation
 1. **HTML Structure:** Added camera toggle and updated capture button logic.

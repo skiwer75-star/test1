@@ -12,6 +12,8 @@ const videoWrapper = document.querySelector('.video-wrapper');
 const modeDesktopBtn = document.getElementById('mode-desktop');
 const modeMobileBtn = document.getElementById('mode-mobile');
 
+const BACKGROUND_IMAGE_URL = 'https://images.unsplash.com/photo-1520116468816-95b69f847357?auto=format&fit=crop&q=80&w=1000';
+
 let capturedImages = [];
 const TOTAL_PHOTOS = 4;
 let currentCameraMode = 'desktop'; // 'desktop' or 'mobile'
@@ -130,46 +132,54 @@ function renderPhotoStrip() {
     resultCanvas.width = photoWidth + (margin * 2);
     resultCanvas.height = (photoHeight * 4) + (margin * 5) + headerHeight + footerHeight;
 
-    // Background: Hawaii Bikini Theme (Gradient Pink/Blue)
-    const gradient = ctx.createLinearGradient(0, 0, 0, resultCanvas.height);
-    gradient.addColorStop(0, '#ff69b4'); // Bikini Pink
-    gradient.addColorStop(0.5, '#fad0c4');
-    gradient.addColorStop(1, '#0077be'); // Ocean Blue
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, resultCanvas.width, resultCanvas.height);
+    // Load and Draw Background Image
+    const bgImg = new Image();
+    bgImg.crossOrigin = "anonymous";
+    bgImg.onload = () => {
+        // Draw background image (cover effect)
+        const scale = Math.max(resultCanvas.width / bgImg.width, resultCanvas.height / bgImg.height);
+        const x = (resultCanvas.width / 2) - (bgImg.width / 2) * scale;
+        const y = (resultCanvas.height / 2) - (bgImg.height / 2) * scale;
+        ctx.drawImage(bgImg, x, y, bgImg.width * scale, bgImg.height * scale);
 
-    // Header Decoration
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-    ctx.fillRect(0, 0, resultCanvas.width, headerHeight - 10);
+        // Add semi-transparent overlay for better contrast
+        ctx.fillStyle = 'rgba(255, 105, 180, 0.2)';
+        ctx.fillRect(0, 0, resultCanvas.width, resultCanvas.height);
 
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 36px Arial';
-    ctx.textAlign = 'center';
-    ctx.shadowColor = 'rgba(0,0,0,0.2)';
-    ctx.shadowBlur = 10;
-    ctx.fillText('👙 ALOHA BIKINI 🏝️', resultCanvas.width / 2, 55);
-    ctx.shadowBlur = 0;
+        // Header Decoration
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+        ctx.fillRect(0, 0, resultCanvas.width, headerHeight - 10);
 
-    // Draw Photos with white borders
-    let loadedCount = 0;
-    capturedImages.forEach((src, index) => {
-        const img = new Image();
-        img.onload = () => {
-            const yPos = headerHeight + margin + (index * (photoHeight + margin));
-            
-            // Photo Border
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(margin - 5, yPos - 5, photoWidth + 10, photoHeight + 10);
-            
-            ctx.drawImage(img, margin, yPos, photoWidth, photoHeight);
-            
-            loadedCount++;
-            if (loadedCount === TOTAL_PHOTOS) {
-                finalizeCanvas(ctx, resultCanvas);
-            }
-        };
-        img.src = src;
-    });
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 36px Arial';
+        ctx.textAlign = 'center';
+        ctx.shadowColor = 'rgba(0,0,0,0.5)';
+        ctx.shadowBlur = 10;
+        ctx.fillText('👙 ALOHA BIKINI 🏝️', resultCanvas.width / 2, 55);
+        ctx.shadowBlur = 0;
+
+        // Draw Photos
+        let loadedCount = 0;
+        capturedImages.forEach((src, index) => {
+            const img = new Image();
+            img.onload = () => {
+                const yPos = headerHeight + margin + (index * (photoHeight + margin));
+                
+                // Photo Border
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(margin - 5, yPos - 5, photoWidth + 10, photoHeight + 10);
+                
+                ctx.drawImage(img, margin, yPos, photoWidth, photoHeight);
+                
+                loadedCount++;
+                if (loadedCount === TOTAL_PHOTOS) {
+                    finalizeCanvas(ctx, resultCanvas);
+                }
+            };
+            img.src = src;
+        });
+    };
+    bgImg.src = BACKGROUND_IMAGE_URL;
 }
 
 function finalizeCanvas(ctx, canvas) {
