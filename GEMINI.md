@@ -148,21 +148,3 @@ The AI's workflow is iterative, transparent, and responsive to user input.
   2. **Dependency Check:** If a `package.json` was modified, AI runs `npm install`.
   3. **Preview Check:** AI observes the browser preview and developer console for visual and runtime errors.
   4. **Remediation/Report:** If errors are found, AI attempts automatic fixes. If unsuccessful, it reports details to the user.
-
-
-# Firebase MCP
-
-When requested for Firebase add the following the server configurations to .idx/mcp.json. Just add the following and don't add anything else.
-
-{
-    "mcpServers": {
-        "firebase": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "firebase-tools@latest",
-                "experimental:mcp"
-            ]
-        }
-    }
-}

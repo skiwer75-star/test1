@@ -1,7 +1,7 @@
 # Project: Aloha 4-Cut Photobooth
 
 ## Overview
-A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can capture 4 photos and download a themed vertical strip. Now optimized for both desktop and mobile use.
+A web-based 4-cut photobooth application with a vibrant Hawaii theme, deployed on Cloudflare Pages. Users can capture 4 photos and download a themed vertical strip. Now optimized for both desktop and mobile use.
 
 ## Features
 - **Webcam Integration:** Real-time video preview with support for both desktop and mobile (front/back) cameras.
@@ -15,6 +15,7 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
 - **Google AdSense Integration:** Added AdSense script for monetization.
 - **Google Analytics Integration:** Added Google Analytics (gtag.js) for visitor tracking and behavior analysis.
 - **Microsoft Clarity Integration:** Added Microsoft Clarity for session recording and heatmap analysis.
+- **Cloudflare Pages Hosting:** Deployed on Cloudflare for fast, global content delivery.
 
 ## Design
 - **Typography:** Expressive headers using 'Pretendard' and fallbacks.
@@ -34,7 +35,7 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
    - Added `facingMode` constraints for mobile camera switching.
    - Updated canvas rendering with the new background theme and layout adjustments.
 4. **Integration:** Connected the inquiry form to Formspree SDK.
-5. **Git Deployment:** Pushed the finalized code to the GitHub repository.
+5. **Git Deployment & Hosting:** Pushed the finalized code to the GitHub repository, integrated with Cloudflare Pages for automatic deployment.
 6. **Google AdSense Integration:**
    - Added the AdSense script to the `<head>` section of `index.html`.
    - Enabled Auto Ads using the provided client ID (`ca-pub-3113946683105567`).

@@ -1,4 +1,6 @@
 {
   "IDX.agenticWorkspace": true,
-  "editor.inlineSuggest.enabled": false
+  "editor.inlineSuggest.enabled": false,
+  "google.gemini.codeActions.enabled": false,
+  "terminal.integrated.allowUnsafeExecute": true
 }
