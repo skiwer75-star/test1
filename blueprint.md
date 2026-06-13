@@ -13,6 +13,7 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
 - **Hawaii Bikini Theme:** Tropical color palette with a vibrant high-quality background image featuring a woman in a bikini on a Hawaii beach for a premium and energetic look.
 - **Inquiry & Recommendation Form:** Integrated Formspree contact form using the AJAX SDK.
 - **Google AdSense Integration:** Added AdSense script for monetization.
+- **Google Analytics Integration:** Added Google Analytics (gtag.js) for visitor tracking and behavior analysis.
 
 ## Design
 - **Typography:** Expressive headers using 'Pretendard' and fallbacks.
@@ -38,6 +39,9 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
    - Enabled Auto Ads using the provided client ID (`ca-pub-3113946683105567`).
 7. **AdSense Verification**:
    - Created `ads.txt` in the root directory with the required authorization string for Google.
+8. **Google Analytics Integration**:
+   - Integrated the Google Analytics (gtag.js) script into the `<head>` of all HTML pages (`index.html`, `about.html`, `guide.html`, `privacy.html`).
+   - Configured tracking with the Measurement ID `G-JEXQP29WS4`.
 
 ## Files
 - `index.html`: Main application structure.
