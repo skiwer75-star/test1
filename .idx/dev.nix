@@ -9,7 +9,12 @@
     pkgs.python3
   ];
   # Sets environment variables in the workspace
-  env = {};
+  env = {
+    # The Gemini CLI might use either GEMINI_API_KEY or GOOGLE_API_KEY.
+    # Make sure to replace "YOUR_API_KEY" with your actual key.
+    GEMINI_API_KEY = "YOUR_API_KEY";
+    GOOGLE_API_KEY = "YOUR_API_KEY";
+  };
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [

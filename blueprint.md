@@ -14,6 +14,7 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
 - **Inquiry & Recommendation Form:** Integrated Formspree contact form using the AJAX SDK.
 - **Google AdSense Integration:** Added AdSense script for monetization.
 - **Google Analytics Integration:** Added Google Analytics (gtag.js) for visitor tracking and behavior analysis.
+- **Microsoft Clarity Integration:** Added Microsoft Clarity for session recording and heatmap analysis.
 
 ## Design
 - **Typography:** Expressive headers using 'Pretendard' and fallbacks.
@@ -42,6 +43,8 @@ A web-based 4-cut photobooth application with a vibrant Hawaii theme. Users can 
 8. **Google Analytics Integration**:
    - Integrated the Google Analytics (gtag.js) script into the `<head>` of all HTML pages (`index.html`, `about.html`, `guide.html`, `privacy.html`).
    - Configured tracking with the Measurement ID `G-JEXQP29WS4`.
+9. **Microsoft Clarity Integration**:
+   - Added Microsoft Clarity tracking script to `index.html` for behavioral insights and session replays.
 
 ## Files
 - `index.html`: Main application structure.
